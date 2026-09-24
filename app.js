@@ -425,3 +425,70 @@ if (contactForm) {
 
 const footerYear = document.getElementById("footer-year");
 if (footerYear) footerYear.textContent = new Date().getFullYear();
+// ========================================
+// WITHX CONTACT FORM
+// ========================================
+
+const contactForm = document.getElementById("contact-form");
+const formNote = document.getElementById("form-note");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector(".form-submit");
+
+    const name = document.getElementById("cf-name").value.trim();
+    const email = document.getElementById("cf-email").value.trim();
+    const message = document.getElementById("cf-message").value.trim();
+
+    if (!name || !email || !message) {
+      formNote.textContent = "Please fill in all required fields.";
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+    formNote.textContent = "";
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch(
+        "https://api.web3forms.com/submit",
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.success) {
+        formNote.textContent =
+          "Message sent successfully. We will get back to you soon.";
+
+        contactForm.reset();
+
+        submitButton.textContent = "Message sent";
+
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send message";
+        }, 3000);
+
+      } else {
+        throw new Error(result.message || "Something went wrong.");
+      }
+
+    } catch (error) {
+      console.error("Contact form error:", error);
+
+      formNote.textContent =
+        "Unable to send your message. Please try again.";
+
+      submitButton.disabled = false;
+      submitButton.textContent = "Send message";
+    }
+  });
+}
