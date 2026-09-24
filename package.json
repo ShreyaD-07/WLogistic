@@ -1,0 +1,7 @@
+{
+  "name": "withx-scroll",
+  "private": true,
+  "scripts": {
+    "start": "python -m http.server 5173"
+  }
+}
