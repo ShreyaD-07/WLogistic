@@ -126,32 +126,81 @@
           </ul>
         </div>
 
-        <form class="contact-form reveal" id="contact-form" novalidate>
-          <div class="form-row">
-            <label for="cf-name">Name</label>
-            <input id="cf-name" name="name" type="text" placeholder="Your full name" required />
-          </div>
-          <div class="form-row">
-            <label for="cf-email">Email</label>
-            <input id="cf-email" name="email" type="email" placeholder="you@company.com" required />
-          </div>
-          <div class="form-row">
-            <label for="cf-company">Company</label>
-            <input id="cf-company" name="company" type="text" placeholder="Company name" />
-          </div>
-          <div class="form-row">
-            <label for="cf-message">Message</label>
-            <textarea
-              id="cf-message"
-              name="message"
-              rows="4"
-              placeholder="Tell us about your shipment or route"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="form-submit">Send message</button>
-          <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
-        </form>
+       <form class="contact-form reveal" id="contact-form">
+
+  <input
+    type="hidden"
+    name="access_key"
+    value="d92b3b48-0467-48c4-b2c2-692d67e6dd0e"
+  />
+
+  <input
+    type="hidden"
+    name="subject"
+    value="New WithX Website Enquiry"
+  />
+
+  <input
+    type="hidden"
+    name="from_name"
+    value="WithX Website"
+  />
+
+  <div class="form-row">
+    <label for="cf-name">Name</label>
+    <input
+      id="cf-name"
+      name="name"
+      type="text"
+      placeholder="Your full name"
+      required
+    />
+  </div>
+
+  <div class="form-row">
+    <label for="cf-email">Email</label>
+    <input
+      id="cf-email"
+      name="email"
+      type="email"
+      placeholder="you@company.com"
+      required
+    />
+  </div>
+
+  <div class="form-row">
+    <label for="cf-company">Company</label>
+    <input
+      id="cf-company"
+      name="company"
+      type="text"
+      placeholder="Company name"
+    />
+  </div>
+
+  <div class="form-row">
+    <label for="cf-message">Message</label>
+    <textarea
+      id="cf-message"
+      name="message"
+      rows="4"
+      placeholder="Tell us about your shipment or route"
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="form-submit">
+    Send message
+  </button>
+
+  <p
+    class="form-note"
+    id="form-note"
+    role="status"
+    aria-live="polite"
+  ></p>
+
+</form>
       </div>
     </section>
 
